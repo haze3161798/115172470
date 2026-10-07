@@ -1,0 +1,55 @@
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: red;
+}
+.taiji,
+.taiji::before,
+.taiji::after {
+  box-sizing: border-box; /* 原站靠 Bootstrap 全域設定，少了這行會跑版 */
+}
+
+.taiji {
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  border-radius: 50%;
+  border-right: 30px solid #fff; /* 右半邊白、左半邊黑 */
+  position: relative;
+  animation: taijiRound 5s linear infinite;
+}
+
+.taiji::before,
+.taiji::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 15px;
+  border-radius: 50%;
+}
+
+/* 上方：白底黑框（黑魚眼） */
+.taiji::after {
+  top: 0;
+  border: 10px solid #000;
+  background-color: #fff;
+}
+
+/* 下方：黑底白框（白魚眼） */
+.taiji::before {
+  bottom: 0;
+  border: 10px solid #fff;
+  background-color: #000;
+}
+
+@keyframes taijiRound {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
